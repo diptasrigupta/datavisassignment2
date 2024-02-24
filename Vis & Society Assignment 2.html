@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Diptasri Gupta</strong> — <em>diptasri@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Exclusionary Zoning</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>How do variations in zoning regulations across Boston neighborhoods correlate with income composition?</li>
+				The article mentions a critical shortage of affordable housing in many cities, and this question investigates if zoning laws in Boston have led to certain neighborhoods being lower or higher income as a result. 
+
+				<li>In what ways do zoning laws influence the demographic (e.g. racial composition or age) of Boston neighborhoods?</li> 
+				The readings suggest zoning laws contribute to racial disparities among neighborhoods. A comparative analysis across neighborhoods could highlight specific areas where policy interventions are most needed.
+
+				<li>To what extent do zoning laws in a region affect the population density in the area</li>
+				 Zoning laws may interfere with as many people moving into a neighborhood. Population-sparse areas could be prime locations for building affordable housing if not for zoning laws. 			
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+
+			<figure>
+				<img src="income_dist.png" alt="" />
+				<figcaption>
+				To begin with, I plotted the income distribution of all the neighborhoods in Boston in aggregate. We can clearly see that household income stays fairly evenly distributed between 10 - 60k, with frequency generally rising between 60 - >200k. The modal income class is > 200k, suggesting that Boston area households are generally quite affluent. It may have been helpful for the dataset to include more granularity in the >200k range as a result, but all the income classes can be used for meaningful analyses. 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="percent_land_single_fam_homes.png" alt="" style="transform: scale(0.6);">
+				<figcaption>
+				Next, I plotted a histogram which illustrates the distribution of land zoned for single-family homes across municipalities in the Boston area, exhibiting a pronounced right skew. This suggests that a majority of municipalities have designated a smaller portion of their land for single-family homes, particularly within the 0-10% range, which is the most populated category. On the other hand, a significant but smaller number of municipalities allocate nearly all their land to single-family homes, as evidenced by the substantial frequency in the 90-100% range. The data points between these two extremes are more sparsely distributed, indicating a wide variation in zoning practices. Notably, there are fewer municipalities within the intermediate percentage ranges, such as 20-30%. This distribution highlights the contrasting zoning policies, with clusters of municipalities at both ends of the spectrum and less uniformity in the middle ranges. </figcaption>
+			</figure>
+
+			<figure>
+				<img src="Income_dist_zoning_type.png" alt="" style="transform: scale(0.8);"/>
+				<figcaption>
+					Next I created a comparison of the average proportion of households across various income ranges, differentiated by whether the land is exclusively designated for single-family homes or not . 
+					The data indicates a trend where households in areas zoned exclusively for single-family homes are more likely to be in higher income brackets. Notably, the proportion of households earning "Over 200K" is significantly higher in regions zoned for only single-family homes compared to areas with more diverse zoning options. This pattern suggests a correlation between single-family zoning and higher household incomes. There is a more even distribution of income ranges in areas not restricted to single-family zoning, though these areas also have fewer households in the highest income category.
+				</figcaption>
+			</figure>
+
+
+			<figure>
+				<img src="percent_zoned_by_median_income_bracket.png" alt="" />
+				<figcaption>
+				To incorporate the percentage of land allotted to single family housing (instead of the variable being a binary), I next calculated the median income bracket for each municipality, and calculated the average percentage of land reserved for single-family housing of municipalities with that median income. Between a median of 45-200k, not much trend is observed. However, for municipalities with an average median income of > 200k, we observe a large jump (~25%) in area reserved for single-family households. This suggests that the wealthy municipalities are far more likely to have larger proportions of land allotted to single-family housing. 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="percent_land_single_family_homes.png" alt="" />
+				<img src="median_income.png" alt="" />
+				<figcaption>
+				Now the correlation had been established, I sought to investigate whether there was a spacial relationship between the high-income municipalities, or the municipalities in which there was a large percentage of land allotted for single-family homes. I found that there seemed to be more land zoned for single-family homes around the center and center-northwest of the region, however there were also some municipalities with strict zoning laws in the south and southeast. When looking at median income, there did not seem to be any spacial trends. 
+			</figcaption>
+			</figure>
+
+			<figure>
+				<img src="age_dist.png" alt="" />
+				<figcaption>
+				I next sought to analyze the age makeup of neighborhoods that were exclusively single-family-zoned or not. 
+				The pie charts compare the demographic compositions of areas zoned for single-family homes versus areas with other housing zones. In single-family zoned areas, the majority (60.9%) of residents are aged 18 to 64, followed by those over 65 (23.8%), and a smaller segment under 18 (15.3%). Conversely, in areas with other housing zones, there is a larger proportion of residents aged 18 to 64 (67.8%), a smaller percentage of those over 65 (19.5%), and an even smaller portion under 18 (12.7%). This suggests that single-family zones have an age distribution that implies more families and retirees live in the area, whereas other housing zones are predominantly occupied by working-age adults.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="Race_dist_zoning_type.png" alt="" />
+				<figcaption>
+					I then created a bar graph to investigate the racial distribution of households across areas zoned exclusively for single-family homes and areas without the zoning. The data indicates a higher proportion of Non-Hispanic White individuals in single-family zones compared to other zones. Other racial groups such as African American, Asian, Pacific Islander, Other, Multiracial, and Hispanic show relatively small proportions in both zoning types, with the non-single family zones exhibiting slightly higher diversity. This suggests that single-family zoning areas are predominantly white, while areas with more diverse housing options have a more varied racial composition, though still with a significant majority of white individuals.				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="density_vs_single_family_zoning.png" alt="" />
+				<figcaption>
+				Finally, I created a graphic displaying whether there was a correlation between population density and percentage of land allocated to single-family zoning. To obtain population density, I divided the population of a municipality by its area in the dataset. Surprisingly, there was not much correlation between the two variables (only a slight downwward trend). However, there was an extremely wide variance in the municipalities that had 0% of land allocated for single family housing. I therefore decided to create the same visualization for the subset of data that had a >0% area of land zoned to see if any trends emerged. 
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="subset_greater_0.png" alt="" style="transform: scale(0.4);" style="padding: 0px;"/>
+				<figcaption>
+				Even after filtering out the high-variance municipalities with 0% land zoned, there was still not a meaningful relationship between density and percentage of land allocated for single family housing. Therefore, population density seems to not be a factor that is overly affected by single-family zoning within this dataset. 
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>In conclusion, there is reasonable evidence to suggest there is a correlation between the amount of land reserved for single-family housing and higher incomes. Neighborhoods that are exclusively single-family-zoned are much more likely to have houshold incomes over 200,000 dollars. These high-income, highly-zoned neighborhoods do not seem to be overtly clustered in a single area. Single-family neighborhoods are also likely to have a significantly higher proportion of White residents, while municipalities with less exclusionary housing policies tend to be more diverse. Single-family neighborhoods also have a lower proportion of young adults, in favor of older adults with children or teenagers. All these point to zoning being somewhat exclusionary, favoring higher-income White families. Interestingly, the percentage of land being zoned for single-family homes does not seem to affect population density that much. This analysis suggests that change policies regarding single-family zoning may affect the demographics and income of neighborhoods.  </p>
+		</section>
+	</main>
+</body>
+</html>
